@@ -1,0 +1,67 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+public class Main{
+public static int getidx(int[] arr,int n)
+{
+    int i;
+    Map<Integer,Integer> m1=new HashMap();
+    for(i=0;i<n;i++)
+    {
+        if(m1.containsKey(arr[i]))
+        {
+            m1.put(arr[i],m1.get(arr[i])+1);
+        }
+        else{
+            m1.put(arr[i],1);
+        }
+    }
+    int k=0;
+    boolean found= false;
+    for(Map.Entry<Integer,Integer> e:m1.entrySet())
+    {
+        if(e.getValue()==1)
+        {
+            found=true;
+            k=e.getKey();
+            break;
+        }
+    }
+    if(found)
+    {
+        return k;
+    }
+    return -1;
+}
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	     int i,n=13;
+	    int arr[]=new int[n];
+	   
+	    for(i=0;i<n;i++)
+	    {
+	        arr[i]=sc.nextInt();
+	    }
+	    int m=getidx(arr,n);
+	    if(m==-1)
+	    System.out.println(m);
+	    for(i=0;i<n;i++)
+	    {
+	        if(arr[i]==m)
+	        {
+	        System.out.println(i+1);
+	        return ;
+	        }
+	        
+	    }
+	   
+	    
+	  
+	}
+}
